@@ -2,11 +2,11 @@ import MenuItem from "./menu-item";
 
 const MenuList = () => {
   return (
-    <div className="menu__list">
-      <MenuItem link="http://" text="Главное" />;
-      <MenuItem link="http://" text="Мой плейлист" />;
-      <MenuItem link="http://" text="Войти" />;
-    </div>
+    <ul className="menu__list">
+      <MenuItem link="http://" text="Главное" />
+      <MenuItem link="http://" text="Мои треки" />
+      <MenuItem link="http://" text="Войти" />
+    </ul>
   );
 };
 

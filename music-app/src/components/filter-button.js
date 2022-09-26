@@ -1,5 +1,5 @@
-const FilterButton = (props) => {
-  return <div className="filter__button _btn-text">{props.text}</div>;
+const FilterButton = ({ text, name }) => {
+  return <div className={name}>{text}</div>;
 };
 
 export default FilterButton;

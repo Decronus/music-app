@@ -1,8 +1,8 @@
-const MenuItem = (props) => {
+const MenuItem = ({ link, text }) => {
   return (
     <li className="menu__item">
-      <a href={props.link} className="menu__link">
-        {props.text}
+      <a href={link} className="menu__link">
+        {text}
       </a>
     </li>
   );

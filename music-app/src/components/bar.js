@@ -1,4 +1,4 @@
-const Bar = (props) => {
+const Bar = ({ track, author }) => {
   return (
     <div className="bar">
       <div className="bar__content">
@@ -8,27 +8,27 @@ const Bar = (props) => {
             <div className="player__controls">
               <div className="player__btn-prev">
                 <svg className="player__btn-prev-svg" alt="prev">
-                  <use xlink:href="img/icon/sprite.svg#icon-prev"></use>
+                  <use href="img/icon/sprite.svg#icon-prev"></use>
                 </svg>
               </div>
               <div className="player__btn-play _btn">
                 <svg className="player__btn-play-svg" alt="play">
-                  <use xlink:href="img/icon/sprite.svg#icon-play"></use>
+                  <use href="img/icon/sprite.svg#icon-play"></use>
                 </svg>
               </div>
               <div className="player__btn-next">
                 <svg className="player__btn-next-svg" alt="next">
-                  <use xlink:href="img/icon/sprite.svg#icon-next"></use>
+                  <use href="img/icon/sprite.svg#icon-next"></use>
                 </svg>
               </div>
               <div className="player__btn-repeat _btn-icon">
                 <svg className="player__btn-repeat-svg" alt="repeat">
-                  <use xlink:href="img/icon/sprite.svg#icon-repeat"></use>
+                  <use href="img/icon/sprite.svg#icon-repeat"></use>
                 </svg>
               </div>
               <div className="player__btn-shuffle _btn-icon">
                 <svg className="player__btn-shuffle-svg" alt="shuffle">
-                  <use xlink:href="img/icon/sprite.svg#icon-shuffle"></use>
+                  <use href="img/icon/sprite.svg#icon-shuffle"></use>
                 </svg>
               </div>
             </div>
@@ -37,17 +37,17 @@ const Bar = (props) => {
               <div className="track-play__contain">
                 <div className="track-play__image">
                   <svg className="track-play__svg" alt="music">
-                    <use xlink:href="img/icon/sprite.svg#icon-note"></use>
+                    <use href="img/icon/sprite.svg#icon-note"></use>
                   </svg>
                 </div>
                 <div className="track-play__author">
                   <a className="track-play__author-link" href="http://">
-                    {props.track}
+                    {track}
                   </a>
                 </div>
                 <div className="track-play__album">
                   <a className="track-play__album-link" href="http://">
-                    {props.author}
+                    {author}
                   </a>
                 </div>
               </div>
@@ -55,12 +55,12 @@ const Bar = (props) => {
               <div className="track-play__like-dis">
                 <div className="track-play__like _btn-icon">
                   <svg className="track-play__like-svg" alt="like">
-                    <use xlink:href="img/icon/sprite.svg#icon-like"></use>
+                    <use href="img/icon/sprite.svg#icon-like"></use>
                   </svg>
                 </div>
                 <div className="track-play__dislike _btn-icon">
                   <svg className="track-play__dislike-svg" alt="dislike">
-                    <use xlink:href="img/icon/sprite.svg#icon-dislike"></use>
+                    <use href="img/icon/sprite.svg#icon-dislike"></use>
                   </svg>
                 </div>
               </div>
@@ -70,7 +70,7 @@ const Bar = (props) => {
             <div className="volume__content">
               <div className="volume__image">
                 <svg className="volume__svg" alt="volume">
-                  <use xlink:href="img/icon/sprite.svg#icon-volume"></use>
+                  <use href="img/icon/sprite.svg#icon-volume"></use>
                 </svg>
               </div>
               <div className="volume__progress _btn">

@@ -2,7 +2,7 @@ const Search = () => {
   return (
     <div className="centerblock__search search">
       <svg className="search__svg">
-        <use xlink:href="img/icon/sprite.svg#icon-search"></use>
+        <use href="img/icon/sprite.svg#icon-search"></use>
       </svg>
       <input
         className="search__text"

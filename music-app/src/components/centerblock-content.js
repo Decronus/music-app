@@ -9,7 +9,7 @@ const CenterblockContent = () => {
         <div className="playlist-title__col col03">АЛЬБОМ</div>
         <div className="playlist-title__col col04">
           <svg className="playlist-title__svg" alt="time">
-            <use xlink:href="img/icon/sprite.svg#icon-watch"></use>
+            <use href="img/icon/sprite.svg#icon-watch"></use>
           </svg>
         </div>
       </div>
