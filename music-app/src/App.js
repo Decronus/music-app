@@ -1,7 +1,6 @@
 import "./style.css";
 import Logo from "./components/logo";
 import Burger from "./components/burger";
-import MenuList from "./components/menu-list";
 import Search from "./components/search";
 import Filter from "./components/filter";
 import CenterblockContent from "./components/centerblock-content";
@@ -18,9 +17,6 @@ function App() {
               <Logo />
             </div>
             <Burger />
-            <div className="nav__menu menu">
-              <MenuList />
-            </div>
           </nav>
           <div className="main__centerblock centerblock">
             <Search />

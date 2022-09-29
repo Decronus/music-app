@@ -1,7 +1,7 @@
 import { useState } from "react";
 import ClickAwayListener from "react-click-away-listener";
 
-const FilterButton = ({ text, name, list }) => {
+const FilterButtonYear = ({ text, name }) => {
   const [visible, setVisible] = useState(false);
 
   const activeButtonColor = {
@@ -29,10 +29,16 @@ const FilterButton = ({ text, name, list }) => {
       </div>
       {visible && (
         <ClickAwayListener onClickAway={() => setVisible(false)}>
-          <div className="filter__popup">
-            <div className="popup__list">{list}</div>
-            <div className="scroll__wrap">
-              <div className="scroll"></div>
+          <div className="filter__popup popup__year">
+            <div className="radio-group">
+              <div className="radio-border">
+                <div className="radio-full"></div>
+              </div>
+              <p>Более новые</p>
+            </div>
+            <div className="radio-group">
+              <div className="radio-border"></div>
+              <p>Более старые</p>
             </div>
           </div>
         </ClickAwayListener>
@@ -41,4 +47,4 @@ const FilterButton = ({ text, name, list }) => {
   );
 };
 
-export default FilterButton;
+export default FilterButtonYear;

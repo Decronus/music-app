@@ -11,30 +11,30 @@ const ContentPlaylist = () => {
       />
 
       <PlaylistItem
-        trackName="Guilt"
-        author="Nero"
-        album="Welcome Reality"
-        time="4:44"
+        trackName="Elektro"
+        author="Dynoro, Outwork, Mr. Gee"
+        album="Elektro"
+        time="2:22"
       />
 
       <PlaylistItem
-        trackName="Guilt"
-        author="Nero"
-        album="Welcome Reality"
-        time="4:44"
+        trackName="I’m Fire"
+        author="Ali Bakgor"
+        album="I’m Fire"
+        time="2:22"
       />
       <PlaylistItem
-        trackName="Guilt"
-        author="Nero"
-        album="Welcome Reality"
-        time="4:44"
+        trackName="Non Stop"
+        author="Стоункат, Psychopath"
+        album="Non Stop"
+        time="4:12"
       />
 
       <PlaylistItem
-        trackName="Guilt"
-        author="Nero"
-        album="Welcome Reality"
-        time="4:44"
+        trackName="Run Run"
+        author="Jaded, Will Clarke, AR/CO"
+        album="Run Run"
+        time="2:54"
       />
     </div>
   );

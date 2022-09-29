@@ -1,4 +1,16 @@
+import { SkeletonRect } from "./skeleton";
+import { useState, useEffect } from "react";
+
 const Bar = ({ track, author }) => {
+  const [isLoaded, setisLoaded] = useState(false);
+
+  const toggleisLoaded = () => {
+    setisLoaded(!isLoaded);
+  };
+
+  useEffect(() => {
+    setTimeout(() => toggleisLoaded(), 2000);
+  }, []);
   return (
     <div className="bar">
       <div className="bar__content">
@@ -37,17 +49,23 @@ const Bar = ({ track, author }) => {
               <div className="track-play__contain">
                 <div className="track-play__image">
                   <svg className="track-play__svg" alt="music">
-                    <use href="img/icon/sprite.svg#icon-note"></use>
+                    {(isLoaded && (
+                      <use href="img/icon/sprite.svg#icon-note"></use>
+                    )) || <SkeletonRect width="51px" height="51px" />}
                   </svg>
                 </div>
                 <div className="track-play__author">
                   <a className="track-play__author-link" href="http://">
-                    {track}
+                    {(isLoaded && "Ты та...") || (
+                      <SkeletonRect width="59px" height="15px" />
+                    )}
                   </a>
                 </div>
                 <div className="track-play__album">
                   <a className="track-play__album-link" href="http://">
-                    {author}
+                    {(isLoaded && "Баста") || (
+                      <SkeletonRect width="59px" height="15px" />
+                    )}
                   </a>
                 </div>
               </div>
