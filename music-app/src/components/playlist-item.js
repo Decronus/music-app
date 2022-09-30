@@ -3,24 +3,17 @@ import { SkeletonRect } from "./skeleton";
 
 const PlaylistItem = ({ trackName, author, album, time }) => {
   const [isLoaded, setisLoaded] = useState(false);
-  const [opacity, changeOpacity] = useState(0);
-
-  const opacityStatus = { opacity: { opacity } };
-
-  const toggleisLoaded = () => {
-    setisLoaded(!isLoaded);
-    changeOpacity(!opacity);
-  };
 
   useEffect(() => {
-    setTimeout(() => toggleisLoaded(), 2000);
+    const timer = setTimeout(() => setisLoaded(true), 2000);
+    return () => clearTimeout(timer);
   }, []);
 
   return (
     <div className="playlist__item">
       <div className="playlist__track track">
         <div className="track__title">
-          <div className="track__title-image" onClick={toggleisLoaded}>
+          <div className="track__title-image">
             <svg className="track__title-svg" alt="music">
               {(isLoaded && (
                 <use href="img/icon/sprite.svg#icon-note"></use>

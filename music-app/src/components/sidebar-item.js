@@ -4,12 +4,9 @@ import { SkeletonRect } from "./skeleton";
 const SidebarItem = ({ link, src, alt }) => {
   const [isLoaded, setisLoaded] = useState(false);
 
-  const toggleisLoaded = () => {
-    setisLoaded(!isLoaded);
-  };
-
   useEffect(() => {
-    setTimeout(() => toggleisLoaded(), 2000);
+    const timer = setTimeout(() => setisLoaded(true), 2000);
+    return () => clearTimeout(timer);
   }, []);
   return (
     <div className="sidebar__item">
