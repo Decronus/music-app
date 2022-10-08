@@ -1,5 +1,5 @@
+import * as S from ".//styled-components/styled-skeleton";
+
 export const SkeletonRect = ({ width, height }) => {
-  return (
-    <div className="skeleton skeleton-rect" style={{ width, height }}></div>
-  );
+  return <S.SkeletonRect style={{ width, height }}></S.SkeletonRect>;
 };

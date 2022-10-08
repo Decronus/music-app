@@ -1,5 +1,6 @@
 import MenuList from "./menu-list";
 import { useState } from "react";
+import * as S from ".//styled-components/styled-burger";
 
 const Burger = () => {
   const [visible, setVisible] = useState(false);
@@ -8,15 +9,15 @@ const Burger = () => {
 
   return (
     <div>
-      <div className="nav__burger burger" onClick={toggleVisibility}>
-        <span className="burger__line"></span>
-        <span className="burger__line"></span>
-        <span className="burger__line"></span>
-      </div>
+      <S.NavBurger onClick={toggleVisibility}>
+        <S.BurgerLine></S.BurgerLine>
+        <S.BurgerLine></S.BurgerLine>
+        <S.BurgerLine></S.BurgerLine>
+      </S.NavBurger>
       {visible && (
-        <div className="nav__menu menu">
+        <S.NavMenu>
           <MenuList />
-        </div>
+        </S.NavMenu>
       )}
     </div>
   );

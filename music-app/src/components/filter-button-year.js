@@ -1,5 +1,7 @@
 import { useState } from "react";
 import ClickAwayListener from "react-click-away-listener";
+import * as S from ".//styled-components/styled-filter-button-year";
+import { FilterPopupYear } from ".//styled-components/styled-filter-popup";
 
 const FilterButtonYear = ({ text, name }) => {
   const [visible, setVisible] = useState(false);
@@ -19,7 +21,7 @@ const FilterButtonYear = ({ text, name }) => {
   };
 
   return (
-    <div className="filter__button-wrap">
+    <S.FilterButtonYearWrap>
       <div
         className={name}
         onClick={toggleVisibility}
@@ -29,21 +31,21 @@ const FilterButtonYear = ({ text, name }) => {
       </div>
       {visible && (
         <ClickAwayListener onClickAway={() => setVisible(false)}>
-          <div className="filter__popup popup__year">
-            <div className="radio-group">
-              <div className="radio-border">
-                <div className="radio-full"></div>
-              </div>
+          <FilterPopupYear>
+            <S.RadioGroup>
+              <S.RadioBorder>
+                <S.RadioFull></S.RadioFull>
+              </S.RadioBorder>
               <p>Более новые</p>
-            </div>
-            <div className="radio-group">
-              <div className="radio-border"></div>
+            </S.RadioGroup>
+            <S.RadioGroup>
+              <S.RadioBorder></S.RadioBorder>
               <p>Более старые</p>
-            </div>
-          </div>
+            </S.RadioGroup>
+          </FilterPopupYear>
         </ClickAwayListener>
       )}
-    </div>
+    </S.FilterButtonYearWrap>
   );
 };
 

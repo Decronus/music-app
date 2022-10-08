@@ -1,5 +1,6 @@
 import FilterButton from "./filter-button";
 import FilterButtonYear from "./filter-button-year";
+import * as S from ".//styled-components/styled-filter";
 
 const authorList = [
   "Michael Jackson",
@@ -13,11 +14,10 @@ const genreList = ["Рок", "Хип-хоп", "Поп-музыка", "Техно
 
 const Filter = () => {
   return (
-    <div className="centerblock__filter filter">
-      <div className="filter__title">Искать по:</div>
+    <S.CenterblockFilter>
+      <S.FilterTitle>Искать по:</S.FilterTitle>
       <FilterButton
         text="исполнителю"
-        name="filter__button button-author _btn-text"
         list={authorList.map((el) => {
           return <p key={authorList.indexOf(el)}>{el}</p>;
         })}
@@ -25,17 +25,16 @@ const Filter = () => {
 
       <FilterButtonYear
         text="году выпуска"
-        name="filter__button button-year _btn-text"
+        // name="filter__button button-year _btn-text"
       />
 
       <FilterButton
         text="жанру"
-        name="filter__button button-genre _btn-text"
         list={genreList.map((el) => {
           return <p key={genreList.indexOf(el)}>{el}</p>;
         })}
       />
-    </div>
+    </S.CenterblockFilter>
   );
 };
 

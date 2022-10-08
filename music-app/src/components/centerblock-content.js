@@ -1,21 +1,22 @@
 import ContentPlaylist from "./content-playlist";
+import * as S from ".//styled-components/styled-centerblock-content";
 
 const CenterblockContent = () => {
   return (
-    <div className="centerblock__content">
-      <div className="content__title playlist-title">
-        <div className="playlist-title__col col01">Трек</div>
-        <div className="playlist-title__col col02">ИСПОЛНИТЕЛЬ</div>
-        <div className="playlist-title__col col03">АЛЬБОМ</div>
-        <div className="playlist-title__col col04">
-          <svg className="playlist-title__svg" alt="time">
-            <use href="img/icon/sprite.svg#icon-watch"></use>
-          </svg>
-        </div>
-      </div>
+    <S.CenterblockContent>
+      <S.ContentTitle>
+        <S.Col01>Трек</S.Col01>
+        <S.Col02>ИСПОЛНИТЕЛЬ</S.Col02>
+        <S.Col03>АЛЬБОМ</S.Col03>
+        <S.Col04>
+          <S.PlaylistTitleSvg>
+            <use href="img/icon/sprite.svg#icon-watch" />
+          </S.PlaylistTitleSvg>
+        </S.Col04>
+      </S.ContentTitle>
 
       <ContentPlaylist />
-    </div>
+    </S.CenterblockContent>
   );
 };
 

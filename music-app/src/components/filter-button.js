@@ -1,5 +1,8 @@
 import { useState } from "react";
 import ClickAwayListener from "react-click-away-listener";
+import * as S from ".//styled-components/styled-filter-popup";
+import { FilterButtonWrap } from ".//styled-components/styled-filter-button-year";
+import { StyledFilterButton } from "./styled-components/styled-filter-button";
 
 const FilterButton = ({ text, name, list }) => {
   const [visible, setVisible] = useState(false);
@@ -19,25 +22,25 @@ const FilterButton = ({ text, name, list }) => {
   };
 
   return (
-    <div className="filter__button-wrap">
-      <div
+    <FilterButtonWrap>
+      <StyledFilterButton
         className={name}
         onClick={toggleVisibility}
         style={visible ? activeButtonColor : nonActiveButtonColor}
       >
         {text}
-      </div>
+      </StyledFilterButton>
       {visible && (
         <ClickAwayListener onClickAway={() => setVisible(false)}>
-          <div className="filter__popup">
-            <div className="popup__list">{list}</div>
-            <div className="scroll__wrap">
-              <div className="scroll"></div>
-            </div>
-          </div>
+          <S.FilterPopup>
+            <S.PopupList>{list}</S.PopupList>
+            <S.ScrollWrap>
+              <S.Scroll></S.Scroll>
+            </S.ScrollWrap>
+          </S.FilterPopup>
         </ClickAwayListener>
       )}
-    </div>
+    </FilterButtonWrap>
   );
 };
 

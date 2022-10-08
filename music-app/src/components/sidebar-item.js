@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { SkeletonRect } from "./skeleton";
+import * as S from ".//styled-components/styled-sidebar-item";
 
 const SidebarItem = ({ link, src, alt }) => {
   const [isLoaded, setisLoaded] = useState(false);
@@ -9,13 +10,13 @@ const SidebarItem = ({ link, src, alt }) => {
     return () => clearTimeout(timer);
   }, []);
   return (
-    <div className="sidebar__item">
+    <S.SidebarItem>
       {(isLoaded && (
-        <a className="sidebar__link" href={link}>
-          <img className="sidebar__img" src={src} alt={alt} />
-        </a>
+        <S.SidebarLink href={link}>
+          <S.SidebarImg src={src} alt={alt} />
+        </S.SidebarLink>
       )) || <SkeletonRect width="250px" height="150px" />}
-    </div>
+    </S.SidebarItem>
   );
 };
 

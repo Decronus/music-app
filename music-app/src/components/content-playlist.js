@@ -1,8 +1,15 @@
 import PlaylistItem from "./playlist-item";
+import styled from "styled-components";
+
+const StyledContentPlaylist = styled.div`
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+`;
 
 const ContentPlaylist = () => {
   return (
-    <div className="content__playlist playlist">
+    <StyledContentPlaylist>
       <PlaylistItem
         trackName="Guilt"
         author="Nero"
@@ -36,7 +43,7 @@ const ContentPlaylist = () => {
         album="Run Run"
         time="2:54"
       />
-    </div>
+    </StyledContentPlaylist>
   );
 };
 

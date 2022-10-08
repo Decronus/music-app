@@ -1,12 +1,13 @@
 import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
+import * as S from ".//styled-components/styled-personal";
 
 const Personal = ({ name }) => {
   return (
-    <div className="sidebar__personal">
-      <p className="sidebar__personal-name">{name || <Skeleton />}</p>
-      <div className="sidebar__avatar"></div>
-    </div>
+    <S.SidebarPresonal>
+      <S.SidebarPersonalName>{name || <Skeleton />}</S.SidebarPersonalName>
+      <S.SidebarAvatar></S.SidebarAvatar>
+    </S.SidebarPresonal>
   );
 };
 

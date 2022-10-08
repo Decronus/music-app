@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { SkeletonRect } from "./skeleton";
+import * as S from ".//styled-components/styled-playlist-item";
 
 const PlaylistItem = ({ trackName, author, album, time }) => {
   const [isLoaded, setisLoaded] = useState(false);
@@ -10,46 +11,45 @@ const PlaylistItem = ({ trackName, author, album, time }) => {
   }, []);
 
   return (
-    <div className="playlist__item">
-      <div className="playlist__track track">
-        <div className="track__title">
-          <div className="track__title-image">
-            <svg className="track__title-svg" alt="music">
+    <S.PlaylistItem>
+      <S.PlaylistTrack>
+        <S.TrackTitle>
+          <S.TrackTitleImage>
+            <S.TrackTitleSvg alt="music">
               {(isLoaded && (
                 <use href="img/icon/sprite.svg#icon-note"></use>
               )) || <SkeletonRect width="51px" height="51px" />}
-            </svg>
-          </div>
-          <div className="track__title-text">
-            <a className="track__title-link" href="http://">
+            </S.TrackTitleSvg>
+          </S.TrackTitleImage>
+          <S.TrackTitleText>
+            <S.TrackTitleLink>
               {(isLoaded && trackName) || <SkeletonRect />}
-
-              <span className="track__title-span"></span>
-            </a>
-          </div>
-        </div>
-        <div className="track__author">
-          <a className="track__author-link" href="http://">
+              <S.TrackTitleSpan></S.TrackTitleSpan>
+            </S.TrackTitleLink>
+          </S.TrackTitleText>
+        </S.TrackTitle>
+        <S.TrackAuthor>
+          <S.TrackAuthorLink href="http://">
             {(isLoaded && author) || <SkeletonRect width="300px" />}
-          </a>
-        </div>
-        <div className="track__album">
-          <a className="track__album-link" href="http://">
+          </S.TrackAuthorLink>
+        </S.TrackAuthor>
+        <S.TrackAlbum>
+          <S.TrackAlbumLink href="http://">
             {(isLoaded && album) || <SkeletonRect width="305px" />}
-          </a>
-        </div>
-        <div className="track__time">
+          </S.TrackAlbumLink>
+        </S.TrackAlbum>
+        <S.TrackTime>
           {(isLoaded && (
             <>
-              <svg className="track__time-svg" alt="time">
+              <S.TrackTimeSvg alt="time">
                 <use href="img/icon/sprite.svg#icon-like"></use>
-              </svg>
-              <span className="track__time-text">{time}</span>
+              </S.TrackTimeSvg>
+              <S.TrackTimeText>{time}</S.TrackTimeText>
             </>
           )) || <SkeletonRect width="60px" />}
-        </div>
-      </div>
-    </div>
+        </S.TrackTime>
+      </S.PlaylistTrack>
+    </S.PlaylistItem>
   );
 };
 

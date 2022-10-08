@@ -6,30 +6,35 @@ import Filter from "./components/filter";
 import CenterblockContent from "./components/centerblock-content";
 import MainSidebar from "./components/main-sidebar";
 import Bar from "./components/bar";
+import GlobalStyles from "./components/styled-components/global-styles";
+import * as S from "./components/styled-components/styled-app";
 
 function App() {
   return (
-    <div className="wrapper">
-      <div className="container">
-        <main className="main">
-          <nav className="main__nav nav">
-            <div className="nav__logo logo">
-              <Logo />
-            </div>
-            <Burger />
-          </nav>
-          <div className="main__centerblock centerblock">
-            <Search />
-            <h2 className="centerblock__h2">Треки</h2>
-            <Filter />
-            <CenterblockContent />
-          </div>
+    <>
+      <GlobalStyles />
+      <S.Wrapper>
+        <S.Container>
+          <S.Main>
+            <S.MainNav>
+              <S.NavLogo>
+                <Logo />
+              </S.NavLogo>
+              <Burger />
+            </S.MainNav>
+            <S.MainCenterblock>
+              <Search />
+              <S.CenterblockH2>Треки</S.CenterblockH2>
+              <Filter />
+              <CenterblockContent />
+            </S.MainCenterblock>
 
-          <MainSidebar />
-        </main>
-        <Bar />
-      </div>
-    </div>
+            <MainSidebar />
+          </S.Main>
+          <Bar />
+        </S.Container>
+      </S.Wrapper>
+    </>
   );
 }
 

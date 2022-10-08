@@ -1,12 +1,13 @@
 import MenuItem from "./menu-item";
+import * as S from ".//styled-components/style-menu-list";
 
 const MenuList = () => {
   return (
-    <ul className="menu__list">
+    <S.MenuList>
       <MenuItem link="http://" text="Главное" />
       <MenuItem link="http://" text="Мои треки" />
       <MenuItem link="http://" text="Войти" />
-    </ul>
+    </S.MenuList>
   );
 };
 
