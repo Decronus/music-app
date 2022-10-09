@@ -1,13 +1,13 @@
-import "./style.css";
 import Logo from "./components/logo";
 import Burger from "./components/burger";
 import Search from "./components/search";
 import Filter from "./components/filter";
 import CenterblockContent from "./components/centerblock-content";
 import MainSidebar from "./components/main-sidebar";
-import Bar from "./components/bar";
-import GlobalStyles from "./components/styled-components/global-styles";
+
 import * as S from "./components/styled-components/styled-app";
+import GlobalStyles from "./components/styled-components/global-styles";
+import Bar from "./components/bar";
 
 function App() {
   return (
