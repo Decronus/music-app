@@ -17,7 +17,7 @@ const PlaylistItem = ({ trackName, author, album, time }) => {
           <S.TrackTitleImage>
             <S.TrackTitleSvg alt="music">
               {(isLoaded && (
-                <use href="img/icon/sprite.svg#icon-note"></use>
+                <use href="../img/icon/sprite.svg#icon-note"></use>
               )) || <SkeletonRect width="51px" height="51px" />}
             </S.TrackTitleSvg>
           </S.TrackTitleImage>

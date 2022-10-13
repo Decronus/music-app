@@ -21,14 +21,12 @@ const FilterButtonYear = ({ text, name }) => {
   };
 
   return (
-    <S.FilterButtonYearWrap>
-      <div
-        className={name}
-        onClick={toggleVisibility}
-        style={visible ? activeButtonColor : nonActiveButtonColor}
-      >
-        {text}
-      </div>
+    <S.FilterButtonYearWrap
+      className={name}
+      onClick={toggleVisibility}
+      style={visible ? activeButtonColor : nonActiveButtonColor}
+    >
+      <div>{text}</div>
       {visible && (
         <ClickAwayListener onClickAway={() => setVisible(false)}>
           <FilterPopupYear>

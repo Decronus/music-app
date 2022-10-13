@@ -5,9 +5,17 @@ const SidebarBlock = () => {
   return (
     <S.SidebarBlock>
       <S.SidebarList>
-        <SidebarItem link="#" src="../img/playlist01.png" alt="alt" />
-        <SidebarItem link="#" src="../img/playlist02.png" alt="alt" />
-        <SidebarItem link="#" src="../img/playlist03.png" alt="alt" />
+        <SidebarItem
+          link="/comp/playlist-of-day"
+          src="../img/playlist01.png"
+          alt="alt"
+        />
+        <SidebarItem
+          link="/comp/dance-hits-100"
+          src="../img/playlist02.png"
+          alt="alt"
+        />
+        <SidebarItem link="/comp/indi" src="../img/playlist03.png" alt="alt" />
       </S.SidebarList>
     </S.SidebarBlock>
   );

@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { SkeletonRect } from "./skeleton";
 import * as S from ".//styled-components/styled-sidebar-item";
+import { Link } from "react-router-dom";
 
 const SidebarItem = ({ link, src, alt }) => {
   const [isLoaded, setisLoaded] = useState(false);
@@ -11,11 +12,13 @@ const SidebarItem = ({ link, src, alt }) => {
   }, []);
   return (
     <S.SidebarItem>
-      {(isLoaded && (
-        <S.SidebarLink href={link}>
-          <S.SidebarImg src={src} alt={alt} />
-        </S.SidebarLink>
-      )) || <SkeletonRect width="250px" height="150px" />}
+      <Link to={link}>
+        {(isLoaded && (
+          <S.SidebarLink>
+            <S.SidebarImg src={src} alt={alt} />
+          </S.SidebarLink>
+        )) || <SkeletonRect width="250px" height="150px" />}
+      </Link>
     </S.SidebarItem>
   );
 };

@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { BtnPointer } from "./mixins";
 
 export const FilterButtonWrap = styled.div`
   position: relative;
@@ -19,6 +20,7 @@ export const FilterButtonYearWrap = styled.div`
   border: 1px solid #ffffff;
   border-radius: 60px;
   padding: 6px 20px;
+  ${BtnPointer}
 `;
 
 export const RadioGroup = styled.div`
