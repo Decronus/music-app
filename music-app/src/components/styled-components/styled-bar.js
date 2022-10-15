@@ -18,6 +18,7 @@ export const BarPlayerProgress = styled.div`
   width: 100%;
   height: 5px;
   background: #2e2e2e;
+  ${M.BtnPointer}
 `;
 
 export const BarPlayerBlock = styled.div`
@@ -55,6 +56,11 @@ export const PlayerBtnPlay = styled(PlayerButtonsStyle)`
   margin-right: 23px;
 `;
 
+export const PlayerBtnPause = styled(PlayerButtonsStyle)`
+  ${M.BtnPointer};
+  margin-right: 23px;
+`;
+
 export const PlayerBtnNext = styled(PlayerButtonsStyle)`
   margin-right: 28px;
   fill: #a53939;
@@ -77,6 +83,12 @@ export const PlayerBtnPrevSvg = styled.svg`
 `;
 
 export const PlayerBtnPlaySvg = styled.svg`
+  width: 22px;
+  height: 20px;
+  fill: #d9d9d9;
+`;
+
+export const PlayerBtnPauseSvg = styled.svg`
   width: 22px;
   height: 20px;
   fill: #d9d9d9;

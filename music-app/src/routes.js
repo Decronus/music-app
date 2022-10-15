@@ -17,7 +17,6 @@ export const AppRoutes = () => {
           </ProtectedRoute>
         }
       />
-      {/* <Route path="/login/:islogin" element={<Main />} /> */}
       <Route
         path="/my-tracks"
         element={

@@ -1,6 +1,7 @@
 import { SkeletonRect } from "./skeleton";
 import { useState, useEffect } from "react";
 import * as S from ".//styled-components/styled-bar";
+import { useRef } from "react";
 
 const Bar = ({ track, author }) => {
   const [isLoaded, setisLoaded] = useState(false);
@@ -9,10 +10,68 @@ const Bar = ({ track, author }) => {
     const timer = setTimeout(() => setisLoaded(true), 2000);
     return () => clearTimeout(timer);
   }, []);
+
+  const refAudio = useRef(null);
+
+  const playAudio = () => {
+    refAudio.current.play();
+    changePlayOnPause();
+    intervalFillBarPosition();
+  };
+
+  const pauseAudio = () => {
+    refAudio.current.pause();
+    changePlayOnPause();
+  };
+
+  const [visible, setVisible] = useState(true);
+
+  const changePlayOnPause = () => {
+    setVisible(!visible);
+  };
+
+  const [barPosition, setBarPosition] = useState(0);
+
+  const fillBarPosition = () => {
+    const currentTime = refAudio.current.currentTime;
+    const duration = refAudio.current.duration;
+    setBarPosition((currentTime / duration) * 100);
+  };
+
+  const intervalFillBarPosition = () => {
+    setInterval(fillBarPosition, 100);
+  };
+
+  useEffect(() => {
+    const barPlayerProgress = document.querySelector(".bar-player-progress");
+
+    barPlayerProgress.addEventListener("click", (event) => {
+      const clickedBarCoord = event.clientX;
+      const windowWidth = window.innerWidth;
+      setBarPosition((clickedBarCoord / windowWidth) * 100);
+      refAudio.current.currentTime =
+        refAudio.current.duration * (clickedBarCoord / windowWidth);
+    });
+  }, []);
+
   return (
     <S.Bar>
       <S.BarContent>
-        <S.BarPlayerProgress></S.BarPlayerProgress>
+        <audio
+          src="../audio/zz-top-sharp-dressed-man.mp3"
+          controls
+          ref={refAudio}
+          style={{ display: "none" }}
+        ></audio>
+        <S.BarPlayerProgress className="bar-player-progress">
+          <div
+            style={{
+              height: "5px",
+              width: `${barPosition}%`,
+              backgroundColor: "#AD61FF",
+            }}
+          ></div>
+        </S.BarPlayerProgress>
         <S.BarPlayerBlock>
           <S.BarPlayer>
             <S.PlayerControls>
@@ -21,11 +80,23 @@ const Bar = ({ track, author }) => {
                   <use href="../img/icon/sprite.svg#icon-prev"></use>
                 </S.PlayerBtnPrevSvg>
               </S.PlayerBtnPrev>
-              <S.PlayerBtnPlay>
-                <S.PlayerBtnPlaySvg alt="play">
-                  <use href="../img/icon/sprite.svg#icon-play"></use>
-                </S.PlayerBtnPlaySvg>
-              </S.PlayerBtnPlay>
+
+              {visible && (
+                <S.PlayerBtnPlay>
+                  <S.PlayerBtnPlaySvg alt="play" onClick={playAudio}>
+                    <use href="../img/icon/sprite.svg#icon-play"></use>
+                  </S.PlayerBtnPlaySvg>
+                </S.PlayerBtnPlay>
+              )}
+
+              {!visible && (
+                <S.PlayerBtnPause>
+                  <S.PlayerBtnPauseSvg alt="pause" onClick={pauseAudio}>
+                    <use href="../img/icon/sprite.svg#icon-pause"></use>
+                  </S.PlayerBtnPauseSvg>
+                </S.PlayerBtnPause>
+              )}
+
               <S.PlayerBtnNext>
                 <S.PlayerBtnNextSvg alt="next">
                   <use href="../img/icon/sprite.svg#icon-next"></use>
@@ -54,14 +125,14 @@ const Bar = ({ track, author }) => {
                 </S.TrackPlayImg>
                 <S.TrackPlayAuthor>
                   <S.TrackPlayAuthorLink href="http://">
-                    {(isLoaded && "Ты та...") || (
+                    {(isLoaded && "Sharp Dress...") || (
                       <SkeletonRect width="59px" height="15px" />
                     )}
                   </S.TrackPlayAuthorLink>
                 </S.TrackPlayAuthor>
                 <S.TrackPlayAlbum>
                   <S.TrackPlayAlbumLink href="http://">
-                    {(isLoaded && "Баста") || (
+                    {(isLoaded && "ZZ Top") || (
                       <SkeletonRect width="59px" height="15px" />
                     )}
                   </S.TrackPlayAlbumLink>
