@@ -3,16 +3,19 @@ import * as S from "../styled-components/styled-app";
 import { Button } from "../styled-components/styled-not-found";
 import LogoBlack from "../logo-black";
 import { Link } from "react-router-dom";
-import { useRef } from "react";
+import { useState } from "react";
 
 export const Login = () => {
   localStorage.removeItem("islogin");
 
-  const refLogin = useRef(null);
-  const refPass = useRef(null);
+  //   const refLogin = useRef(null);
+  //   const refPass = useRef(null);
+
+  const [login, setLogin] = useState("");
+  const [password, setPassword] = useState("");
 
   const setLoginToken = () => {
-    if (refLogin.current.value === "admin" && refPass.current.value === "123") {
+    if (login === "admin" && password === "123") {
       localStorage.setItem("islogin", true);
     } else {
       alert("Неверный логин и/или пароль");
@@ -29,12 +32,14 @@ export const Login = () => {
               <L.LoginFormInput
                 type="text"
                 placeholder="Логин"
-                ref={refLogin}
+                // ref={refLogin}
+                onChange={(event) => setLogin(event.target.value)}
               />
               <L.LoginFormInput
                 type="password"
                 placeholder="Пароль"
-                ref={refPass}
+                // ref={refPass}
+                onChange={(event) => setPassword(event.target.value)}
               />
               <Link to="/">
                 <Button

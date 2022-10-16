@@ -28,6 +28,10 @@ const GlobalStyles = createGlobalStyle`
 		cursor: pointer;
 	}
 
+	audio {
+		display: none;
+	}
+
 	button {
 		cursor: pointer;
 	}

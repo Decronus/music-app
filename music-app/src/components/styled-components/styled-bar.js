@@ -21,6 +21,11 @@ export const BarPlayerProgress = styled.div`
   ${M.BtnPointer}
 `;
 
+export const FillBarPlayerProgress = styled.div`
+  height: 5px;
+  background-color: #ad61ff;
+`;
+
 export const BarPlayerBlock = styled.div`
   height: 73px;
   display: flex;

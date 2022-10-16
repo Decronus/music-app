@@ -42,10 +42,10 @@ const Bar = ({ track, author }) => {
     setInterval(fillBarPosition, 100);
   };
 
-  useEffect(() => {
-    const barPlayerProgress = document.querySelector(".bar-player-progress");
+  const refBarPlayerProgress = useRef(null);
 
-    barPlayerProgress.addEventListener("click", (event) => {
+  useEffect(() => {
+    refBarPlayerProgress.current.addEventListener("click", (event) => {
       const clickedBarCoord = event.clientX;
       const windowWidth = window.innerWidth;
       setBarPosition((clickedBarCoord / windowWidth) * 100);
@@ -61,16 +61,13 @@ const Bar = ({ track, author }) => {
           src="../audio/zz-top-sharp-dressed-man.mp3"
           controls
           ref={refAudio}
-          style={{ display: "none" }}
         ></audio>
-        <S.BarPlayerProgress className="bar-player-progress">
-          <div
+        <S.BarPlayerProgress ref={refBarPlayerProgress}>
+          <S.FillBarPlayerProgress
             style={{
-              height: "5px",
               width: `${barPosition}%`,
-              backgroundColor: "#AD61FF",
             }}
-          ></div>
+          ></S.FillBarPlayerProgress>
         </S.BarPlayerProgress>
         <S.BarPlayerBlock>
           <S.BarPlayer>
