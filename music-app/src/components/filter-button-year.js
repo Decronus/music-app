@@ -29,7 +29,7 @@ const FilterButtonYear = ({ text, name }) => {
       <div>{text}</div>
       {visible && (
         <ClickAwayListener onClickAway={() => setVisible(false)}>
-          <FilterPopupYear>
+          <FilterPopupYear style={{ color: "white" }}>
             <S.RadioGroup>
               <S.RadioBorder>
                 <S.RadioFull></S.RadioFull>

@@ -10,9 +10,9 @@ const Burger = () => {
   return (
     <div>
       <S.NavBurger onClick={toggleVisibility}>
-        <S.BurgerLine></S.BurgerLine>
-        <S.BurgerLine></S.BurgerLine>
-        <S.BurgerLine></S.BurgerLine>
+        <S.BurgerLine />
+        <S.BurgerLine />
+        <S.BurgerLine />
       </S.NavBurger>
       {visible && (
         <S.NavMenu>

@@ -23,10 +23,7 @@ const Filter = () => {
         })}
       />
 
-      <FilterButtonYear
-        text="году выпуска"
-        // name="filter__button button-year _btn-text"
-      />
+      <FilterButtonYear text="году выпуска" />
 
       <FilterButton
         text="жанру"

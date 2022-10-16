@@ -3,6 +3,8 @@ import * as S from ".//styled-components/style-menu-list";
 import { Link } from "react-router-dom";
 
 const MenuList = () => {
+  const isLogin = localStorage.getItem("islogin");
+
   return (
     <S.MenuList>
       <Link to="/">
@@ -12,10 +14,7 @@ const MenuList = () => {
         <MenuItem link="http://" text="Мои треки" />
       </Link>
       <Link to="/login">
-        <MenuItem
-          link="http://"
-          text={localStorage.getItem("islogin") ? "Выйти" : "Войти"}
-        />
+        <MenuItem link="http://" text={isLogin ? "Выйти" : "Войти"} />
       </Link>
     </S.MenuList>
   );

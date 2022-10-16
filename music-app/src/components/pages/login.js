@@ -7,16 +7,12 @@ import { useRef } from "react";
 
 export const Login = () => {
   localStorage.removeItem("islogin");
-  console.log(localStorage.getItem("islogin"));
 
   const refLogin = useRef(null);
   const refPass = useRef(null);
 
   const setLoginToken = () => {
-    if (
-      (refLogin.current.value === "admin") &
-      (refPass.current.value === "123")
-    ) {
+    if (refLogin.current.value === "admin" && refPass.current.value === "123") {
       localStorage.setItem("islogin", true);
     } else {
       alert("Неверный логин и/или пароль");
