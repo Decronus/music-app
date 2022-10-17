@@ -8,9 +8,6 @@ import { useState } from "react";
 export const Login = () => {
   localStorage.removeItem("islogin");
 
-  //   const refLogin = useRef(null);
-  //   const refPass = useRef(null);
-
   const [login, setLogin] = useState("");
   const [password, setPassword] = useState("");
 
@@ -32,13 +29,11 @@ export const Login = () => {
               <L.LoginFormInput
                 type="text"
                 placeholder="Логин"
-                // ref={refLogin}
                 onChange={(event) => setLogin(event.target.value)}
               />
               <L.LoginFormInput
                 type="password"
                 placeholder="Пароль"
-                // ref={refPass}
                 onChange={(event) => setPassword(event.target.value)}
               />
               <Link to="/">
