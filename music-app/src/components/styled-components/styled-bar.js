@@ -58,12 +58,12 @@ export const PlayerBtnPrev = styled(PlayerButtonsStyle)`
 
 export const PlayerBtnPlay = styled(PlayerButtonsStyle)`
   ${M.BtnPointer};
-  margin-right: 23px;
+  margin-right: 18px;
 `;
 
 export const PlayerBtnPause = styled(PlayerButtonsStyle)`
   ${M.BtnPointer};
-  margin-right: 23px;
+  margin-right: 18px;
 `;
 
 export const PlayerBtnNext = styled(PlayerButtonsStyle)`
