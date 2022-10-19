@@ -6,13 +6,24 @@ import MainSidebar from "../main-sidebar";
 import Bar from "../bar";
 
 import * as S from "../styled-components/styled-app";
+import { useThemeContext } from "../context";
 
 export const MyTracks = () => {
+  const { theme } = useThemeContext();
   return (
     <S.Wrapper>
-      <S.Container>
+      <S.Container
+        style={{
+          backgroundColor: theme.containerBackgroundColor,
+          color: theme.containerColor,
+        }}
+      >
         <S.Main>
-          <S.MainNav>
+          <S.MainNav
+            style={{
+              backgroundColor: theme.mainNavBackgroundColor,
+            }}
+          >
             <S.NavLogo>
               <Logo />
             </S.NavLogo>

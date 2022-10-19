@@ -6,7 +6,7 @@ export const Bar = styled.div`
   bottom: 0;
   left: 0;
   width: 100%;
-  background: rgba(28, 28, 28, 0.5);
+  background: #181818;
 `;
 
 export const BarContent = styled.div`
@@ -107,29 +107,29 @@ export const PlayerBtnNextSvg = styled.svg`
 `;
 
 export const PlayerBtnRepeatSvg = styled.svg`
-  width: 18px;
-  height: 12px;
+  width: 20px;
+  height: 18px;
   fill: transparent;
   stroke: #696969;
 `;
 
 export const PlayerBtnShuffleSvg = styled.svg`
-  width: 19px;
-  height: 12px;
+  width: 20px;
+  height: 18px;
   fill: transparent;
   stroke: #696969;
 `;
 
 export const TrackPlayLikeSvg = styled.svg`
-  width: 14px;
-  height: 12px;
+  width: 16px;
+  height: 14px;
   fill: transparent;
   stroke: #696969;
 `;
 
 export const TrackPlayDislikeSvg = styled.svg`
-  width: 14.34px;
-  height: 13px;
+  width: 16px;
+  height: 15px;
   fill: transparent;
   stroke: #696969;
 `;
@@ -148,8 +148,8 @@ export const TrackPlayContain = styled.div`
 `;
 
 export const TrackPlayImg = styled.div`
-  width: 51px;
-  height: 51px;
+  width: 49px;
+  height: 49px;
   background-color: #313131;
   display: flex;
   align-items: center;

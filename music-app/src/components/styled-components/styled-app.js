@@ -24,8 +24,9 @@ export const Main = styled.main`
 
 export const MainNav = styled.nav`
   width: 244px;
-  background-color: #181818;
+  background-color: #1c1c1c;
   padding: 20px 0 20px 36px;
+  height: 100vh;
 `;
 
 export const NavLogo = styled.div`

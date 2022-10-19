@@ -41,8 +41,8 @@ export const Col04 = styled(PlaylistTitleCol)`
 `;
 
 export const PlaylistTitleSvg = styled.svg`
-  width: 12px;
-  height: 12px;
+  width: 13px;
+  height: 13px;
   fill: transparent;
   stroke: #696969;
 `;

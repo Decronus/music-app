@@ -21,8 +21,8 @@ export const TrackTitle = styled.div`
 `;
 
 export const TrackTitleImage = styled.div`
-  width: 51px;
-  height: 51px;
+  width: 49px;
+  height: 49px;
   padding: 16px;
   background: #313131;
   display: flex;

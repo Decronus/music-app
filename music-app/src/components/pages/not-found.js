@@ -5,14 +5,25 @@ import Bar from "../bar";
 
 import * as S from "../styled-components/styled-app";
 import { NotFoundComponent } from "../not-found";
+import { useThemeContext } from "../context";
 
 export const NotFound = () => {
+  const { theme } = useThemeContext();
   return (
     <S.Wrapper>
-      <S.Container>
+      <S.Container
+        style={{
+          backgroundColor: theme.containerBackgroundColor,
+          color: theme.containerColor,
+        }}
+      >
         <NotFoundComponent />
         <S.Main>
-          <S.MainNav>
+          <S.MainNav
+            style={{
+              backgroundColor: theme.mainNavBackgroundColor,
+            }}
+          >
             <S.NavLogo>
               <Logo />
             </S.NavLogo>

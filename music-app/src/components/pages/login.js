@@ -4,6 +4,7 @@ import { Button } from "../styled-components/styled-not-found";
 import LogoBlack from "../logo-black";
 import { Link } from "react-router-dom";
 import { useState } from "react";
+import { useThemeContext } from "../context";
 
 export const Login = () => {
   localStorage.removeItem("islogin");
@@ -19,9 +20,15 @@ export const Login = () => {
     }
   };
 
+  const { theme } = useThemeContext();
   return (
     <S.Wrapper>
-      <S.Container>
+      <S.Container
+        style={{
+          backgroundColor: theme.containerBackgroundColor,
+          color: theme.containerColor,
+        }}
+      >
         <L.LoginWrap>
           <L.FormBackground>
             <LogoBlack width="140px" />

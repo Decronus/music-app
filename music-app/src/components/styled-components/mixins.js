@@ -20,8 +20,8 @@ export const BtnIcon = css`
 
 export const BtnText = css`
   &:hover {
-    border-color: #d9b6ff;
-    color: #d9b6ff;
+    border-color: ${({ hoverBorderColor }) => hoverBorderColor};
+    color: ${({ hoverBorderColor }) => hoverBorderColor};
     cursor: pointer;
   }
 

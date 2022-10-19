@@ -30,7 +30,7 @@ export const SearchText = styled.input`
   outline: none;
   &::placeholder {
     background-color: transparent;
-    color: #ffffff;
+    color: ${({ placeholderColor }) => placeholderColor};
     font-style: normal;
     font-weight: 400;
     font-size: 16px;

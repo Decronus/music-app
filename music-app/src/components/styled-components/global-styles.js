@@ -1,6 +1,7 @@
 import { createGlobalStyle } from "styled-components";
 
 const GlobalStyles = createGlobalStyle`
+
 	@font-face {
 		font-family: 'Stratos';
 		src: url('Stratos-Regular.woff2') format('woff2'),

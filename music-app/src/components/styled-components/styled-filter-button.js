@@ -6,7 +6,8 @@ export const StyledFilterButton = styled.div`
   font-weight: 400;
   font-size: 16px;
   line-height: 24px;
-  border: 1px solid #ffffff;
+  border: ${({ border }) => border};
+  color: ${({ textColor }) => textColor};
   border-radius: 60px;
   padding: 6px 20px;
   ${BtnText}
