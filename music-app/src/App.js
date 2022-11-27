@@ -2,6 +2,8 @@ import { AppRoutes } from "./routes";
 import GlobalStyles from "./components/styled-components/global-styles";
 import { useState, useEffect } from "react";
 import { ThemeContext, themes } from "./components/context";
+import { Provider } from "react-redux";
+import { store } from "./store";
 
 export function App() {
   const [currentTheme, setCurrentTheme] = useState("");
@@ -25,10 +27,12 @@ export function App() {
   };
 
   return (
-    <ThemeContext.Provider value={{ theme: currentTheme, toggleTheme }}>
-      <AppRoutes />
-      <GlobalStyles />
-    </ThemeContext.Provider>
+    <Provider store={store}>
+      <ThemeContext.Provider value={{ theme: currentTheme, toggleTheme }}>
+        <AppRoutes />
+        <GlobalStyles />
+      </ThemeContext.Provider>
+    </Provider>
   );
 }
 

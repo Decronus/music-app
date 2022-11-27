@@ -5,6 +5,7 @@ import { MyTracks } from "./components/pages/my-tracks";
 import { NotFound } from "./components/pages/not-found";
 import { Login } from "./components/pages/login";
 import { ProtectedRoute } from "./components/protected-route";
+import { SignUp } from "./components/pages/sign-up";
 
 export const AppRoutes = () => {
   return (
@@ -34,6 +35,7 @@ export const AppRoutes = () => {
         }
       />
       <Route path="/login" element={<Login />} />
+      <Route path="/sign-up" element={<SignUp />} />
       <Route path="*" element={<NotFound />} />
     </Routes>
   );

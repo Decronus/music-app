@@ -43,18 +43,20 @@ export const Login = () => {
                 placeholder="Пароль"
                 onChange={(event) => setPassword(event.target.value)}
               />
-              <Link to="/">
-                <Button
-                  type="submit"
-                  primary={true}
-                  marginBottom="20px"
-                  onClick={setLoginToken}
-                >
-                  Войти
-                </Button>
-              </Link>
-              <Button>Зарегистрироваться</Button>
             </L.LoginForm>
+            <Link to="/">
+              <Button
+                type="submit"
+                primary={true}
+                marginBottom="20px"
+                onClick={setLoginToken}
+              >
+                Войти
+              </Button>
+            </Link>
+            <Link to="/sign-up">
+              <Button>Зарегистрироваться</Button>
+            </Link>
           </L.FormBackground>
         </L.LoginWrap>
       </S.Container>

@@ -25,6 +25,9 @@ export const LoginForm = styled.form`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  gap: 38px;
+  margin-top: 42px;
+  margin-bottom: 60px;
 `;
 
 export const LoginFormInput = styled.input`
@@ -38,11 +41,11 @@ export const LoginFormInput = styled.input`
     letter-spacing: -0.05px;
     color: #e1e1e1;
   }
-  &:first-child {
-    margin-bottom: 38px;
-    margin-top: 42px;
-  }
-  &:nth-child(2) {
-    margin-bottom: 60px;
-  }
+  //   &:first-child {
+  //     margin-bottom: 38px;
+  //     margin-top: 42px;
+  //   }
+  //   &:nth-child(2) {
+  //     margin-bottom: 60px;
+  //   }
 `;
