@@ -1,5 +1,6 @@
 import PlaylistItem from "./playlist-item";
 import styled from "styled-components";
+import { useGetAllTracksQuery } from "../tracks-api";
 
 const StyledContentPlaylist = styled.div`
   display: flex;
@@ -8,41 +9,34 @@ const StyledContentPlaylist = styled.div`
 `;
 
 const ContentPlaylist = () => {
+  const { data, error, isLoading } = useGetAllTracksQuery();
+
+  const secInMinSec = (sec) => {
+    const minutes = Math.floor(sec / 60);
+    let seconds = sec - minutes * 60;
+    if (seconds < 10) seconds = `0${seconds}`;
+    return `${minutes}:${seconds}`;
+  };
+
+  if (isLoading)
+    return <p style={{ opacity: "0.3" }}>Список треков загружается...</p>;
+  if (error) return <p style={{ opacity: "0.3" }}>{error}</p>;
+
   return (
     <StyledContentPlaylist>
-      <PlaylistItem
-        trackName="Guilt"
-        author="Nero"
-        album="Welcome Reality"
-        time="4:44"
-      />
-
-      <PlaylistItem
-        trackName="Elektro"
-        author="Dynoro, Outwork, Mr. Gee"
-        album="Elektro"
-        time="2:22"
-      />
-
-      <PlaylistItem
-        trackName="I’m Fire"
-        author="Ali Bakgor"
-        album="I’m Fire"
-        time="2:22"
-      />
-      <PlaylistItem
-        trackName="Non Stop"
-        author="Стоункат, Psychopath"
-        album="Non Stop"
-        time="4:12"
-      />
-
-      <PlaylistItem
-        trackName="Run Run"
-        author="Jaded, Will Clarke, AR/CO"
-        album="Run Run"
-        time="2:54"
-      />
+      {data?.map((track) => {
+        return (
+          <PlaylistItem
+            id={track.id}
+            key={track.id}
+            trackName={track.name}
+            author={track.author}
+            album={track.album}
+            time={secInMinSec(track.duration_in_seconds)}
+            trackLink={track.track_file}
+          />
+        );
+      })}
     </StyledContentPlaylist>
   );
 };

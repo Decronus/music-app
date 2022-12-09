@@ -5,10 +5,13 @@ import LogoBlack from "../logo-black";
 import { useThemeContext } from "../context";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useSignUpMutation } from "../../user-api";
 
 export const SignUp = () => {
   const { theme } = useThemeContext();
   const navigate = useNavigate();
+
+  const [signUp] = useSignUpMutation();
 
   const [login, setLogin] = useState("");
   const [password, setPassword] = useState("");
@@ -27,6 +30,11 @@ export const SignUp = () => {
       setErrorVisibility(true);
       return;
     }
+    signUp({
+      username: login,
+      email: login,
+      password: password,
+    });
     navigate("/login", { replace: true });
   };
 
@@ -67,7 +75,7 @@ export const SignUp = () => {
             >
               Зарегистрироваться
             </Button>
-            {errorVisibility && <p style={{ color: "black" }}>{errorText}</p>}
+            {errorVisibility && <p style={{ color: "#E12F2F" }}>{errorText}</p>}
           </L.FormBackground>
         </L.LoginWrap>
       </S.Container>
