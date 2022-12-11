@@ -20,7 +20,18 @@ export const userApi = createApi({
         body,
       }),
     }),
+    refreshTokens: builder.mutation({
+      query: (body) => ({
+        url: "token/refresh/",
+        method: "POST",
+        body,
+      }),
+    }),
   }),
 });
 
-export const { useSignUpMutation, useGetTokensMutation } = userApi;
+export const {
+  useSignUpMutation,
+  useGetTokensMutation,
+  useRefreshTokensMutation,
+} = userApi;

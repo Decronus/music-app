@@ -8,6 +8,7 @@ import { useThemeContext } from "../context";
 import { useGetTokensMutation } from "../../user-api";
 
 export const Login = () => {
+  const { theme } = useThemeContext();
   const navigate = useNavigate();
   const [getTokens, { data, error, isLoading }] = useGetTokensMutation();
 
@@ -20,22 +21,26 @@ export const Login = () => {
         email: login,
         password: password,
       });
+      if (isLoading) console.log("Загрузка");
     } else {
       alert("Заполните все поля");
     }
+    if (data) console.log(data);
     // if (!error) {
     //   navigate("/", { replace: true });
     // }
   };
 
-  const { theme } = useThemeContext();
-
-  if (isLoading) console.log("Загрузка");
+  //   if (isLoading) console.log("Загрузка");
   if (data) {
-    console.log(data.access);
+    // console.log(data.access);
     localStorage.setItem("accessToken", data.access);
+    document.cookie = `refresh=${data.refresh}`;
+    navigate("/", { replace: true });
   }
   if (error) console.log(error.data.detail);
+
+  //   console.log("cookie", document.cookie);
 
   return (
     <S.Wrapper>
