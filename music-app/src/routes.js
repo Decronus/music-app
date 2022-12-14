@@ -14,31 +14,30 @@ export const AppRoutes = () => {
     let matches = document.cookie.match(
       new RegExp(
         "(?:^|; )" +
+          // eslint-disable-next-line no-useless-escape
           name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, "\\$1") +
           "=([^;]*)"
       )
     );
     return matches ? decodeURIComponent(matches[1]) : undefined;
   }
-  const [refreshTokens] = useRefreshTokensMutation();
+  const [refreshTokens, { data }] = useRefreshTokensMutation();
   useEffect(() => {
     setInterval(() => {
       const refreshCookie = getCookie("refresh");
       refreshTokens({
         refresh: refreshCookie,
       });
-    }, 300000);
+    }, 60000);
   });
+
+  if (data) {
+    localStorage.setItem("accessToken", data.access);
+  }
+
   return (
     <Routes>
-      <Route
-        path="/"
-        element={
-          <ProtectedRoute>
-            <Main />
-          </ProtectedRoute>
-        }
-      />
+      <Route path="/" element={<Main />} />
       <Route
         path="/my-tracks"
         element={

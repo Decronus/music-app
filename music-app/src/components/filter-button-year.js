@@ -4,7 +4,12 @@ import * as S from ".//styled-components/styled-filter-button-year";
 import { FilterPopupYear } from ".//styled-components/styled-filter-popup";
 import { useThemeContext } from "./context";
 
-const FilterButtonYear = ({ text, name }) => {
+const FilterButtonYear = ({
+  text,
+  name,
+  newToOldFilter,
+  setNewToOldFilter,
+}) => {
   const [visible, setVisible] = useState(false);
 
   const toggleVisibility = () => {
@@ -37,26 +42,36 @@ const FilterButtonYear = ({ text, name }) => {
               background: theme.mainNavBackgroundColor,
             }}
           >
-            <S.RadioGroup>
+            <S.RadioGroup onClick={() => setNewToOldFilter(true)}>
               <S.RadioBorder
                 style={{
                   borderColor: theme.containerColor,
                 }}
               >
-                <S.RadioFull
-                  style={{
-                    backgroundColor: theme.containerColor,
-                  }}
-                ></S.RadioFull>
+                {newToOldFilter && (
+                  <S.RadioFull
+                    style={{
+                      backgroundColor: theme.containerColor,
+                    }}
+                  ></S.RadioFull>
+                )}
               </S.RadioBorder>
               <p>Более новые</p>
             </S.RadioGroup>
-            <S.RadioGroup>
+            <S.RadioGroup onClick={() => setNewToOldFilter(false)}>
               <S.RadioBorder
                 style={{
                   borderColor: theme.containerColor,
                 }}
-              ></S.RadioBorder>
+              >
+                {!newToOldFilter && (
+                  <S.RadioFull
+                    style={{
+                      backgroundColor: theme.containerColor,
+                    }}
+                  ></S.RadioFull>
+                )}
+              </S.RadioBorder>
               <p>Более старые</p>
             </S.RadioGroup>
           </FilterPopupYear>

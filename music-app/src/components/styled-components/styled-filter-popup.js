@@ -15,11 +15,12 @@ export const FilterPopup = styled.div`
   border-radius: 12px;
   left: 0;
   top: 49px;
+  overflow: scroll;
 `;
 
 export const FilterPopupYear = styled(FilterPopup)`
   width: 403px;
-  height: 92px;
+  max-height: 92px;
   display: flex;
   justify-content: center;
 
@@ -36,10 +37,16 @@ export const PopupList = styled.div`
   gap: 28px;
   font-size: 20px;
   line-height: 24px;
-  p:first-child {
-    text-decoration-line: underline;
-    color: #b672ff;
+  & p {
+    cursor: pointer;
+    &:hover {
+      color: #d9b6ff;
+    }
   }
+  //   p:first-child {
+  //     text-decoration-line: underline;
+  //     color: #b672ff;
+  //   }
 `;
 
 export const ScrollWrap = styled.div`
@@ -57,4 +64,17 @@ export const Scroll = styled.div`
   background: #ffffff;
   border-radius: 10px;
   top: 0;
+`;
+
+export const FilterCounter = styled.div`
+  position: absolute;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: #ad61ff;
+  top: -8px;
+  right: -8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;

@@ -5,11 +5,11 @@ const DATA_TAG = { type: "Tracks", id: "LIST" };
 export const tracksApi = createApi({
   reducerPath: "tracksApi",
   baseQuery: fetchBaseQuery({
-    baseUrl: "https://painassasin.online/catalog/track/",
+    baseUrl: "https://painassasin.online/catalog/",
   }),
   endpoints: (builder) => ({
     getAllTracks: builder.query({
-      query: () => "all",
+      query: () => "track/all",
       providesTags: (result = []) => [DATA_TAG],
     }),
     addToFav: builder.mutation({
@@ -17,7 +17,7 @@ export const tracksApi = createApi({
         headers: {
           Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
         },
-        url: `${id}/favorite/`,
+        url: `track/${id}/favorite/`,
         method: "POST",
         invalidatesTags: [DATA_TAG],
       }),
@@ -27,7 +27,7 @@ export const tracksApi = createApi({
         headers: {
           Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
         },
-        url: `${id}/favorite/`,
+        url: `track/${id}/favorite/`,
         method: "DELETE",
         invalidatesTags: [DATA_TAG],
       }),
@@ -37,8 +37,11 @@ export const tracksApi = createApi({
         headers: {
           Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
         },
-        url: `favorite/all/`,
+        url: `track/favorite/all/`,
       }),
+    }),
+    getSelection: builder.query({
+      query: () => "selection",
     }),
   }),
 });
@@ -48,4 +51,5 @@ export const {
   useAddToFavMutation,
   useDeleteFavMutation,
   useFavAllQuery,
+  useGetSelectionQuery,
 } = tracksApi;

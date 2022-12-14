@@ -25,22 +25,15 @@ export const Login = () => {
     } else {
       alert("Заполните все поля");
     }
-    if (data) console.log(data);
-    // if (!error) {
-    //   navigate("/", { replace: true });
-    // }
   };
 
-  //   if (isLoading) console.log("Загрузка");
   if (data) {
-    // console.log(data.access);
+    localStorage.setItem("login", login);
     localStorage.setItem("accessToken", data.access);
     document.cookie = `refresh=${data.refresh}`;
     navigate("/", { replace: true });
   }
   if (error) console.log(error.data.detail);
-
-  //   console.log("cookie", document.cookie);
 
   return (
     <S.Wrapper>

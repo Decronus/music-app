@@ -5,7 +5,7 @@ import { FilterButtonWrap } from ".//styled-components/styled-filter-button-year
 import { StyledFilterButton } from "./styled-components/styled-filter-button";
 import { useThemeContext } from "./context";
 
-const FilterButton = ({ text, name, list }) => {
+const FilterButton = ({ text, name, list, filterList }) => {
   const [visible, setVisible] = useState(false);
 
   const toggleVisibility = () => {
@@ -16,6 +16,10 @@ const FilterButton = ({ text, name, list }) => {
 
   return (
     <FilterButtonWrap>
+      {filterList && filterList.length > 0 ? (
+        <S.FilterCounter>{filterList.length}</S.FilterCounter>
+      ) : undefined}
+
       <StyledFilterButton
         className={name}
         onClick={toggleVisibility}
@@ -37,9 +41,9 @@ const FilterButton = ({ text, name, list }) => {
         <ClickAwayListener onClickAway={() => setVisible(false)}>
           <S.FilterPopup style={{ background: theme.mainNavBackgroundColor }}>
             <S.PopupList>{list}</S.PopupList>
-            <S.ScrollWrap>
+            {/* <S.ScrollWrap>
               <S.Scroll></S.Scroll>
-            </S.ScrollWrap>
+            </S.ScrollWrap> */}
           </S.FilterPopup>
         </ClickAwayListener>
       )}

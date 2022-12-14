@@ -9,9 +9,17 @@ import {
   useDeleteFavMutation,
 } from "../tracks-api";
 
-const PlaylistItem = ({ id, trackName, author, album, time, trackLink }) => {
+const PlaylistItem = ({
+  id,
+  trackName,
+  author,
+  album,
+  time,
+  trackLink,
+  setCurrentTrack,
+}) => {
   const [isLoaded, setisLoaded] = useState(false);
-  const { data, error, isLoading } = useFavAllQuery();
+  const { data } = useFavAllQuery();
   const isFav = () => {
     if (data) {
       for (let obj of Object.values(data)) {
@@ -38,19 +46,19 @@ const PlaylistItem = ({ id, trackName, author, album, time, trackLink }) => {
     <S.PlaylistItem>
       <S.PlaylistTrack>
         <S.TrackTitle>
-          <a href={trackLink}>
-            <S.TrackTitleImage>
-              {theme === themes.dark ? (
-                <S.TrackTitleSvg alt="music">
-                  {(isLoaded && (
-                    <use href="../img/icon/sprite.svg#icon-note"></use>
-                  )) || <SkeletonRect width="51px" height="51px" />}
-                </S.TrackTitleSvg>
-              ) : (
-                <img src={`${iconNoteLight}`} alt="icon-note" />
-              )}
-            </S.TrackTitleImage>
-          </a>
+          {/* <a href={trackLink}> */}
+          <S.TrackTitleImage onClick={() => setCurrentTrack(trackLink)}>
+            {theme === themes.dark ? (
+              <S.TrackTitleSvg alt="music">
+                {(isLoaded && (
+                  <use href="../img/icon/sprite.svg#icon-note"></use>
+                )) || <SkeletonRect width="51px" height="51px" />}
+              </S.TrackTitleSvg>
+            ) : (
+              <img src={`${iconNoteLight}`} alt="icon-note" />
+            )}
+          </S.TrackTitleImage>
+          {/* </a> */}
           <S.TrackTitleText>
             <S.TrackTitleLink style={{ color: theme.containerColor }}>
               {(isLoaded && trackName) || <SkeletonRect />}

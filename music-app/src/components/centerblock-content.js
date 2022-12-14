@@ -2,8 +2,14 @@ import ContentPlaylist from "./content-playlist";
 import * as S from ".//styled-components/styled-centerblock-content";
 import { useThemeContext, themes } from "./context";
 
-const CenterblockContent = () => {
+const CenterblockContent = ({
+  authorFilterList,
+  genreFilterList,
+  sortedDataList,
+  setCurrentTrack,
+}) => {
   const { theme } = useThemeContext();
+
   return (
     <S.CenterblockContent>
       <S.ContentTitle style={{ color: theme.contentTitleColor }}>
@@ -30,7 +36,12 @@ const CenterblockContent = () => {
         </S.Col04>
       </S.ContentTitle>
 
-      <ContentPlaylist />
+      <ContentPlaylist
+        authorFilterList={authorFilterList}
+        genreFilterList={genreFilterList}
+        sortedDataList={sortedDataList}
+        setCurrentTrack={setCurrentTrack}
+      />
     </S.CenterblockContent>
   );
 };
