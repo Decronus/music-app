@@ -29,6 +29,7 @@ export const TrackTitleImage = styled.div`
   align-items: center;
   justify-content: center;
   margin-right: 17px;
+  cursor: pointer;
 `;
 
 export const TrackTitleSvg = styled.svg`

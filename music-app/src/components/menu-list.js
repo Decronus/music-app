@@ -9,18 +9,55 @@ import { themes, useThemeContext } from "./context";
 
 const MenuList = () => {
   const { toggleTheme, theme } = useThemeContext();
-  const isLogin = localStorage.getItem("islogin");
+
+  function setCookie(name, value, options = {}) {
+    options = {
+      path: "/",
+      // при необходимости добавьте другие значения по умолчанию
+      ...options,
+    };
+
+    if (options.expires instanceof Date) {
+      options.expires = options.expires.toUTCString();
+    }
+
+    let updatedCookie =
+      encodeURIComponent(name) + "=" + encodeURIComponent(value);
+
+    for (let optionKey in options) {
+      updatedCookie += "; " + optionKey;
+      let optionValue = options[optionKey];
+      if (optionValue !== true) {
+        updatedCookie += "=" + optionValue;
+      }
+    }
+
+    document.cookie = updatedCookie;
+  }
+  function deleteCookie(name) {
+    setCookie(name, "", {
+      "max-age": -1,
+    });
+  }
+  const logout = () => {
+    localStorage.removeItem("login");
+    localStorage.removeItem("accessToken");
+    deleteCookie("refresh");
+  };
 
   return (
     <S.MenuList>
       <Link to="/">
-        <MenuItem link="http://" text="Главное" />
+        <MenuItem text="Главное" />
       </Link>
       <Link to="/my-tracks">
-        <MenuItem link="http://" text="Мои треки" />
+        <MenuItem text="Мои треки" />
       </Link>
       <Link to="/login">
-        <MenuItem link="http://" text={isLogin ? "Выйти" : "Войти"} />
+        <MenuItem
+          text={localStorage.getItem("login") ? "Выйти" : "Войти"}
+          handleClick={logout}
+        />
       </Link>
       {theme === themes.dark ? (
         <DarkThemeIcon
