@@ -1,4 +1,3 @@
-import "react-loading-skeleton/dist/skeleton.css";
 import * as S from ".//styled-components/styled-personal";
 import { useThemeContext } from "./context";
 
