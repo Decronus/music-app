@@ -6,16 +6,16 @@ const SidebarBlock = () => {
     <S.SidebarBlock>
       <S.SidebarList>
         <SidebarItem
-          link="/comp/playlist-of-day"
+          link="/comp/classic"
           src="../img/playlist01.png"
           alt="alt"
         />
         <SidebarItem
-          link="/comp/dance-hits-100"
+          link="/comp/electro"
           src="../img/playlist02.png"
           alt="alt"
         />
-        <SidebarItem link="/comp/indi" src="../img/playlist03.png" alt="alt" />
+        <SidebarItem link="/comp/rock" src="../img/playlist03.png" alt="alt" />
       </S.SidebarList>
     </S.SidebarBlock>
   );
